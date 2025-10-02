@@ -1,2 +1,41 @@
+# EPISODE - 1 & 2
+
 ## CDN (Content Delivery Network):
-    - A globally distributed network of servers that delivers cached web content (HTML, CSS, JS, Images) from the nearest server to the user. 
+    A globally distributed network of servers that delivers cached 
+    web content (HTML, CSS, JS, Images) from the nearest server to the user.
+
+## Library vs Framework:
+    - A library is a set of reusable functions that I call directly to solve specific problems,
+    so my application code controls the flow.
+    - A framework on the other hand provides a structure and controls the overall flow of the
+    application, calling my code at specific points, this is called the **Inversion of Control**.
+
+## Parcel:
+    - A zero configuration web application bundler.
+    - It takes project files, processes them and bundles them into optimized files for the broswer.
+    **Features:**
+        - Dev Build
+        - Local Server
+        - HMR - Hot Module Replacement
+        - File Watching Algorithm - written in C++
+        - Tree Shaking - remove unused code
+        - Caching - faster builds
+        - Image Optimization
+        - Minification
+        - Bundling
+        - Compress
+        - Content Hashing
+        - Code Spliting
+        - Differential Bundling - supports older browsers
+        - Diagonstic - beautiful errors
+        - Error Handling
+        - HTTPs
+        - Reliable Caching - everything parcel does cached
+        - Different Development and Production Bundles
+
+### Caret ^
+    - minor updates i-e 2.16.0 -> 2.16.1
+
+### Tilde ~
+    - major updates i-e 2.16.0 -> 3.16.0
+
