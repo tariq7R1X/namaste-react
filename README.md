@@ -1,16 +1,19 @@
 # EPISODE - 1 & 2
 
-## CDN (Content Delivery Network):
-    A globally distributed network of servers that delivers cached 
+### CDN (Content Delivery Network):
+
+    A globally distributed network of servers that delivers cached
     web content (HTML, CSS, JS, Images) from the nearest server to the user.
 
-## Library vs Framework:
+### Library vs Framework:
+
     - A library is a set of reusable functions that I call directly to solve specific problems,
     so my application code controls the flow.
     - A framework on the other hand provides a structure and controls the overall flow of the
     application, calling my code at specific points, this is called the **Inversion of Control**.
 
-## Parcel:
+### Parcel:
+
     - A zero configuration web application bundler.
     - It takes project files, processes them and bundles them into optimized files for the broswer.
     **Features:**
@@ -34,8 +37,21 @@
         - Different Development and Production Bundles
 
 ### Caret ^
+
     - minor updates i-e 2.16.0 -> 2.16.1
 
 ### Tilde ~
+
     - major updates i-e 2.16.0 -> 3.16.0
 
+# EPISODE - 3
+
+### JSX:
+- JSX is not HTML in JavaScript.
+- It is HTML-Like or XML-Like syntax.
+- It is transpiled before it reaches the JS engine and it is done by **PARCEL** with the help of **BABEL**.
+
+### Babel:
+- Babel is a JavaScript compiler that converts modern JavaScript (ES6+ or JSX) into older
+versions of JavaScript so that browsers can understand it.
+- In short Babel makes new JS code backward-compatible for all browsers.
