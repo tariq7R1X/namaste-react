@@ -47,11 +47,30 @@
 # EPISODE - 3
 
 ### JSX:
+
 - JSX is not HTML in JavaScript.
 - It is HTML-Like or XML-Like syntax.
 - It is transpiled before it reaches the JS engine and it is done by **PARCEL** with the help of **BABEL**.
 
 ### Babel:
+
 - Babel is a JavaScript compiler that converts modern JavaScript (ES6+ or JSX) into older
-versions of JavaScript so that browsers can understand it.
+  versions of JavaScript so that browsers can understand it.
 - In short Babel makes new JS code backward-compatible for all browsers.
+
+🪄 JSX => React.createElement => ReactElement-JS Object => HTMLElement(render)
+
+### React Components:
+
+1. Class Based Components - Old way to write React Components
+2. Functional Components - New way to write React Components
+
+### React Functional Components:
+
+- A functional that returns some peice of JSX code.
+- First Letter of Component name must be Capital letter.
+- At the end of the day Functional Components are normal JavaScript functions.
+
+
+### Component Composition:
+- A Component inside another component.
