@@ -78,6 +78,16 @@
 
 # EPISODE - 04
 
+### PROPS:
+- Props short for properties.
+- A way to pass data from a parent component to a child component in React.
+- They make components reusable and dyanmic.
+- Props are Read-Only - You can not modify props inside a component.
 
+
+### Config Driven UI:
+- Building a user interface based on  data (configuration) instead of hardcoding it in your component.
+- **In Short:** The UI changes when the config (JSON/Object) changes.
+- No need to change the React code itself.
 
 
