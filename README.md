@@ -91,3 +91,23 @@
 - No need to change the React code itself.
 
 
+# FOOD ORDERING APP
+/**
+ *
+ * Header
+ * - Logo
+ * - Nav Items
+ * Body
+ * - SearchBar
+ * - RestaurantContainer
+ *   - RestaurantCard
+ * Footer
+ * - Copyright
+ * - Links
+ * - Address
+ * - Contact
+ *
+ */
+
+
+
