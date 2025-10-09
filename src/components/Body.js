@@ -20,10 +20,10 @@ const Body = () => {
     <div className="body">
       <div className="top-bar">
         <div className="search">Search</div>
-        <div className="top-rated" onClick={filterTopRated}>
+        <div className="filter-btn top-rated" onClick={filterTopRated}>
           Top Rated
         </div>
-        <div className="top-rated" onClick={showAllRes}>
+        <div className="filter-btn show-all" onClick={showAllRes}>
           Show All
         </div>
       </div>

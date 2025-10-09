@@ -71,43 +71,48 @@
 - First Letter of Component name must be Capital letter.
 - At the end of the day Functional Components are normal JavaScript functions.
 
-
 ### Component Composition:
-- A Component inside another component.
 
+- A Component inside another component.
 
 # EPISODE - 04
 
 ### PROPS:
+
 - Props short for properties.
 - A way to pass data from a parent component to a child component in React.
 - They make components reusable and dyanmic.
 - Props are Read-Only - You can not modify props inside a component.
 
-
 ### Config Driven UI:
-- Building a user interface based on  data (configuration) instead of hardcoding it in your component.
+
+- Building a user interface based on data (configuration) instead of hardcoding it in your component.
 - **In Short:** The UI changes when the config (JSON/Object) changes.
 - No need to change the React code itself.
 
-
 # FOOD ORDERING APP
-/**
- *
- * Header
- * - Logo
- * - Nav Items
- * Body
- * - SearchBar
- * - RestaurantContainer
- *   - RestaurantCard
- * Footer
- * - Copyright
- * - Links
- * - Address
- * - Contact
- *
- */
 
+- Header
+- - Logo
+- - Nav Items
+- Body
+- - SearchBar
+- - RestaurantContainer
+- - RestaurantCard
+- Footer
+- - Copyright
+- - Links
+- - Address
+- - Contact
 
+## Two Types of Hooks:
 
+### Default Export/Import
+
+- export default Component
+- import Component from "/path";
+
+### Named Export/Import
+
+- export const Component;
+- import { Component } from "/path";

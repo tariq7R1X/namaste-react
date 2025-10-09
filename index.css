@@ -54,14 +54,14 @@
   font-weight: 600;
 }
 
-.top-rated {
+.filter-btn {
   padding: 6px 8px;
   margin-left: 8px;
   border-radius: 8px;
   color: #fff;
   background-color: #333;
 }
-.top-rated:hover {
+.filter-btn:hover {
   cursor: pointer;
   box-shadow: 3px 3px 4px #686565;
   transition: 0.1s ease-in-out;
