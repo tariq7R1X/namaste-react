@@ -116,3 +116,6 @@
 
 - export const Component;
 - import { Component } from "/path";
+
+## useState:
+- Whenever a state variable changes, **React** will render component.
