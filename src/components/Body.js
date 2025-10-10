@@ -6,15 +6,13 @@ import { TOP_RATED_RATING } from "../utils/common";
 const Body = () => {
   const [showRestaurants, setShowRestaurants] = useState(resList);
   const filterTopRated = () => {
-    const filteredRes = showRestaurants.filter((topRes) => {
-      return topRes.info.avgRating > TOP_RATED_RATING;
-    });
+    const filteredRes = showRestaurants.filter(
+      (topRes) => topRes.info.avgRating > TOP_RATED_RATING
+    );
     setShowRestaurants(filteredRes);
   };
 
-  const showAllRes = () => {
-    return setShowRestaurants(resList);
-  };
+  const showAllRes = () => setShowRestaurants(resList);
 
   return (
     <div className="body">
