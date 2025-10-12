@@ -12,6 +12,8 @@ const Body = () => {
     setShowRestaurants(filteredRes);
   };
 
+  const showAllRes = () => setShowRestaurants(resList);
+
   return (
     <div className="body">
       <div className="top-bar">
@@ -19,10 +21,7 @@ const Body = () => {
         <div className="filter-btn top-rated" onClick={filterTopRated}>
           Top Rated
         </div>
-        <div
-          className="filter-btn show-all"
-          onClick={() => setShowRestaurants(resList)}
-        >
+        <div className="filter-btn show-all" onClick={showAllRes}>
           Show All
         </div>
       </div>
