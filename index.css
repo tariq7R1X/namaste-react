@@ -41,6 +41,20 @@
   font-weight: 700;
   cursor: pointer;
 }
+.login-btn {
+  padding: 6px 8px;
+  margin-left: 8px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: var(--primary-color);
+  font-size: 15px;
+  font-weight: 600;
+}
+.login-btn:hover {
+  cursor: pointer;
+  box-shadow: 1px 2px 4px #686565;
+  transition: 0.1s ease-in-out;
+}
 
 .top-bar {
   display: flex;
@@ -70,14 +84,15 @@
 .restaurant-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .restaurant-card {
   background-color: rgb(238, 238, 238);
   margin: 20px;
   padding: 5px;
-  width: 200px;
-  /* height: 350px; */
+  width: 250px;
   border: 1px solid var(--primary-color);
+  border-radius: 5px;
 }
 .restaurant-card:hover {
   cursor: pointer;
@@ -86,4 +101,80 @@
 
 .restuarant-img {
   width: 100%;
+  height: 200px;
+}
+
+/* Skelton Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+.card {
+  width: 300px;
+  padding: 16px;
+  margin: 20px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Shimmer Base */
+.shimmer {
+  background: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer Animation */
+.shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Specific Elements */
+.image {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+}
+
+.title {
+  width: 70%;
+  height: 18px;
+  border-radius: 6px;
+}
+
+.line {
+  width: 100%;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.line.short {
+  width: 50%;
 }
