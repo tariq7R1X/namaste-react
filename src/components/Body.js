@@ -10,7 +10,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://raw.githubusercontent.com/namastedev/namaste-react/refs/heads/main/swiggy-api"
+      "https://corsproxy.io/?https://raw.githubusercontent.com/namastedev/namaste-react/refs/heads/main/swiggy-api"
     );
     const jsonData = await data.json();
     const resList =
@@ -71,8 +71,8 @@ const Body = () => {
       <div className="restaurant-container">
         {filteredList.length === 0 ? (
           <div>
-            <h2 className="no-restaurant-heading">No restaurants found</h2>
-          <Shimmer />
+            <h2 className="no-restaurant-heading">No Restaurants Found</h2>
+            <Shimmer />
           </div>
         ) : (
           filteredList.map((restaurantData) => (

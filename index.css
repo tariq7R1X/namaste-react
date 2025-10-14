@@ -115,8 +115,9 @@
 .card-details {
   font-family: var(--font-family);
 }
-.no-restaurant-heading{
-  color: var(--primary-color);
+.no-restaurant-heading {
+  color: var(--secondary-color);
+  font-family: var(--font-family);
 }
 .restaurant-card:hover {
   cursor: pointer;
