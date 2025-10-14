@@ -11,6 +11,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 .header {
   position: sticky;
   top: 0;
@@ -59,13 +60,30 @@
 .top-bar {
   display: flex;
   align-items: center;
+  margin: 50px 60px 10px;
   font-family: var(--font-family);
 }
 
-.search {
-  padding: 20px;
+.search-field {
+  padding: 6px;
+  border-radius: 10px;
+  font-size: 18px;
   font-family: var(--font-family);
-  font-weight: 600;
+}
+
+.search-btn {
+  font-family: var(--font-family);
+  padding: 6px 8px;
+  margin-left: 8px;
+  margin-right: 18px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #333;
+}
+.search-btn:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 4px #686565;
+  transition: 0.1s ease-in-out;
 }
 
 .filter-btn {
@@ -73,11 +91,11 @@
   margin-left: 8px;
   border-radius: 8px;
   color: #fff;
-  background-color: #333;
+  background-color: var(--primary-color);
 }
 .filter-btn:hover {
   cursor: pointer;
-  box-shadow: 3px 3px 4px #686565;
+  box-shadow: 2px 2px 4px #686565;
   transition: 0.1s ease-in-out;
 }
 
@@ -93,6 +111,12 @@
   width: 250px;
   border: 1px solid var(--primary-color);
   border-radius: 5px;
+}
+.card-details {
+  font-family: var(--font-family);
+}
+.no-restaurant-heading{
+  color: var(--primary-color);
 }
 .restaurant-card:hover {
   cursor: pointer;
