@@ -16,13 +16,19 @@ const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
-            <Link to={"/"}>Home</Link>
+            <Link className="restaurant-link" to={"/"}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to={"/about"}>About</Link>
+            <Link className="restaurant-link" to={"/about"}>
+              About
+            </Link>
           </li>
           <li>
-            <Link to={"/contact"}>Contact</Link>
+            <Link className="restaurant-link" to={"/contact"}>
+              Contact
+            </Link>
           </li>
           <li>Cart</li>
           <button className="login-btn" onClick={toggleBtnText}>

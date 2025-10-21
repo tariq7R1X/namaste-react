@@ -1,7 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import { TOP_RATED_RATING } from "../utils/common";
+import { REST_API, TOP_RATED_RATING } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -9,12 +10,10 @@ const Body = () => {
   const [searchText, setSeachText] = useState("");
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/?https://raw.githubusercontent.com/namastedev/namaste-react/refs/heads/main/swiggy-api"
-    );
+    const data = await fetch(REST_API);
     const jsonData = await data.json();
     const resList =
-      jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || [];
     setRestaurantList(resList);
     setFilteredList(resList);
@@ -76,10 +75,13 @@ const Body = () => {
           </div>
         ) : (
           filteredList.map((restaurantData) => (
-            <RestaurantCard
+            <Link
+              to={"/restaurants/" + restaurantData.info.id}
+              className="restaurant-link"
               key={restaurantData.info.id}
-              resData={restaurantData}
-            />
+            >
+              <RestaurantCard resData={restaurantData} />
+            </Link>
           ))
         )}
       </div>
