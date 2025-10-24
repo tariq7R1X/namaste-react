@@ -43,7 +43,7 @@ const RestaurantMenu = () => {
             </div>
             <div className="rest-image">
               <img
-                alt="rest-img"
+                alt="restaurant-img"
                 src={CDN_URL + restaurant.info.cloudinaryImageId}
               />
             </div>
