@@ -285,3 +285,12 @@
   font-weight: 600;
   color: #666;
 }
+
+/* User Card */
+.about-us-section {
+  margin: 20px;
+}
+
+.user-card {
+  padding: 10px;
+}
