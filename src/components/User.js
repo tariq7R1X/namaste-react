@@ -1,20 +1,43 @@
 import React from "react";
 
-class User extends React.Component{
-    constructor(props){
-        super(props)
-        console.log(this.props);
-        
-    }
-    render(){
-        return(
-            <div className="user-card">
-                <h2>Name: {this.props.name}</h2>
-                <h2>Location: Karachi</h2>
-                <h2>contact: @tariquehussain</h2>
-            </div>
-        )
-    }
+class User extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userInfo: {},
+    };
+  }
+
+  async componentDidMount() {
+    const { username } = this.props;
+    const data = await fetch(`https://api.github.com/users/${username}`);
+    const jsonData = await data.json();
+    this.setState({
+      userInfo: jsonData,
+    });
+  }
+
+  render() {
+    const { name, location, company, avatar_url, html_url } =
+      this.state.userInfo;
+
+    return (
+      <a
+        href={html_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="user-link"
+      >
+        <div className="user-card restaurant-card">
+          <img className="user-img" alt="user-img" src={avatar_url} />
+          <h3>Name: {name}</h3>
+          <h3>Location: {location || "Not Mentioned"}</h3>
+          <h3>Company: {company || "Not Mentioned"}</h3>
+          <h3>Contact: @{this.props.username}</h3>
+        </div>
+      </a>
+    );
+  }
 }
 
 export default User;
