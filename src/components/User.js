@@ -29,7 +29,7 @@ class User extends React.Component {
         className="user-link"
       >
         <div className="user-card restaurant-card">
-          <img className="user-img" alt="user-img" src={avatar_url} />
+          <img className="user-img" alt="user-image" src={avatar_url} />
           <h3>Name: {name}</h3>
           <h3>Location: {location || "Not Mentioned"}</h3>
           <h3>Company: {company || "Not Mentioned"}</h3>
