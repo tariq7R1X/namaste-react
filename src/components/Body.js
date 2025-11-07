@@ -4,23 +4,18 @@ import { REST_API, TOP_RATED_RATING } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/custom_hooks/useOnlineStatus";
+import useRestaurantList from "../utils/custom_hooks/useRestaurantList";
 
 const Body = () => {
-  const [restaurantList, setRestaurantList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSeachText] = useState("");
 
+  const restaurantList = useRestaurantList();
   const isOnlineStatus = useOnlineStatus();
 
-  const fetchData = async () => {
-    const data = await fetch(REST_API);
-    const jsonData = await data.json();
-    const resList =
-      jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants || [];
-    setRestaurantList(resList);
-    setFilteredList(resList);
-  };
+  useEffect(() => {
+    setFilteredList(restaurantList);
+  }, [restaurantList]);
 
   const searchRestaurant = () => {
     if (searchText.trim() === "") {
@@ -42,11 +37,8 @@ const Body = () => {
 
   const showAllRes = () => setFilteredList(restaurantList);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  if (!isOnlineStatus) return <h1 className="offline-heading">It seems like your are offline...</h1>;
+  if (!isOnlineStatus)
+    return <h1 className="offline-heading">It seems like your are offline</h1>;
 
   return restaurantList.length === 0 ? (
     <Shimmer />
