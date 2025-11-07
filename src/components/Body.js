@@ -3,11 +3,14 @@ import { useEffect, useState } from "react";
 import { REST_API, TOP_RATED_RATING } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/custom_hooks/useOnlineStatus";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSeachText] = useState("");
+
+  const isOnlineStatus = useOnlineStatus();
 
   const fetchData = async () => {
     const data = await fetch(REST_API);
@@ -42,6 +45,8 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (!isOnlineStatus) return <h1 className="offline-heading">It seems like your are offline...</h1>;
 
   return restaurantList.length === 0 ? (
     <Shimmer />

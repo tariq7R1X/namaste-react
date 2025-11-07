@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/custom_hooks/useOnlineStatus";
 
 const APP_LOGO = new URL("../../assets/app_logo.png", import.meta.url).href;
 
 const Header = () => {
   const [toggleBtn, setToggleBtn] = useState("Logout");
+  const isOnlineStatus = useOnlineStatus();
   const toggleBtnText = () => {
     setToggleBtn((prev) => (prev === "Login" ? "Logout" : "Login"));
   };
@@ -15,6 +17,7 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>{isOnlineStatus ? "Online 🟢" : "Offline 🔴"}</li>
           <li>
             <Link className="restaurant-link" to={"/"}>
               Home
@@ -28,6 +31,11 @@ const Header = () => {
           <li>
             <Link className="restaurant-link" to={"/contact"}>
               Contact
+            </Link>
+          </li>
+          <li>
+            <Link className="restaurant-link" to={"/grocery"}>
+              Grocery
             </Link>
           </li>
           <li>Cart</li>
