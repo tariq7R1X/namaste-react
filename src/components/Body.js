@@ -1,6 +1,6 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { IsRestaurantOpen } from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import { REST_API, TOP_RATED_RATING } from "../utils/constants";
+import { TOP_RATED_RATING } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/custom_hooks/useOnlineStatus";
@@ -12,6 +12,8 @@ const Body = () => {
 
   const restaurantList = useRestaurantList();
   const isOnlineStatus = useOnlineStatus();
+
+  const RestaurantIsOpen = IsRestaurantOpen(RestaurantCard);
 
   useEffect(() => {
     setFilteredList(restaurantList);
@@ -77,7 +79,11 @@ const Body = () => {
               className="restaurant-link"
               key={restaurantData.info.id}
             >
-              <RestaurantCard resData={restaurantData} />
+              {restaurantData.info.isOpen ? (
+                <RestaurantIsOpen resData={restaurantData} />
+              ) : (
+                <RestaurantCard resData={restaurantData} />
+              )}
             </Link>
           ))
         )}

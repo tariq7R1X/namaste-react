@@ -330,7 +330,6 @@
   transition: 0.3s;
 }
 
-
 /* offline heading styling */
 .offline-heading {
   font-family: var(--font-family);
@@ -348,3 +347,21 @@
   font-weight: 600;
 }
 
+/* fancy badge open restaurant */
+
+.card-wrapper {
+  position: relative;
+}
+
+.opened-restaurant {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  background-color: var(--secondary-color);
+  transform: rotate(-10deg);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 900;
+  padding: 8px 20px;
+  border-radius: 4px;
+}
