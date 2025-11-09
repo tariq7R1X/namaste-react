@@ -11,7 +11,6 @@ class User extends React.Component {
 
   async componentDidMount() {
     const { username } = this.props;
-    // const data = await fetch(`https://api.github.com/users/${username}`);
     const data = await fetch(`${GIT_API}/${username}`);
     const jsonData = await data.json();
     this.setState({

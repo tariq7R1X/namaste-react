@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/custom_hooks/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const APP_LOGO = new URL("../../assets/app_logo.png", import.meta.url).href;
 
 const Header = () => {
   const [toggleBtn, setToggleBtn] = useState("Logout");
   const isOnlineStatus = useOnlineStatus();
+  const { loggedInUser } = useContext(UserContext);
+
   const toggleBtnText = () => {
     setToggleBtn((prev) => (prev === "Login" ? "Logout" : "Login"));
   };
@@ -42,6 +45,7 @@ const Header = () => {
           <button className="login-btn" onClick={toggleBtnText}>
             {toggleBtn}
           </button>
+          <li>{loggedInUser}</li>
         </ul>
       </div>
     </div>

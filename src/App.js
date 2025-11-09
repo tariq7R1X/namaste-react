@@ -5,9 +5,11 @@ import AboutUs from "./components/AboutUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import ContactUs from "./components/ContactUs";
-import { lazy, Suspense } from "react";
+import Contact from "./components/Contact";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Shimmer from "./components/Shimmer";
+import Footer from "./components/Footer";
+import UserContext from "./utils/UserContext";
 
 /**
  * Chunking
@@ -21,11 +23,23 @@ import Shimmer from "./components/Shimmer";
 const GroceryStore = lazy(() => import("./components/GroceryStore"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Tarique Dahri",
+    };
+    setUserName(data.name);
+  },[]);
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -44,7 +58,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <ContactUs />,
+        element: <Contact />,
       },
       {
         path: "/grocery",

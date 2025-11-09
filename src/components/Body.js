@@ -1,14 +1,18 @@
 import RestaurantCard, { IsRestaurantOpen } from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { TOP_RATED_RATING } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/custom_hooks/useOnlineStatus";
 import useRestaurantList from "../utils/custom_hooks/useRestaurantList";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [filteredList, setFilteredList] = useState([]);
-  const [searchText, setSeachText] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const [inputValue, setInputValue] = useState("");
+
+  const { setUserName } = useContext(UserContext);
 
   const restaurantList = useRestaurantList();
   const isOnlineStatus = useOnlineStatus();
@@ -19,13 +23,14 @@ const Body = () => {
     setFilteredList(restaurantList);
   }, [restaurantList]);
 
-  const searchRestaurant = () => {
-    if (searchText.trim() === "") {
+  const searchRestaurant = (text) => {
+    if (text.trim() === "") {
       setFilteredList(restaurantList);
       return;
     }
+
     const searchedResults = restaurantList.filter((res) =>
-      res.info?.name.toLowerCase().includes(searchText.toLowerCase())
+      res.info?.name.toLowerCase().includes(text.toLowerCase())
     );
     setFilteredList(searchedResults);
   };
@@ -39,6 +44,14 @@ const Body = () => {
 
   const showAllRes = () => setFilteredList(restaurantList);
 
+  // change logged in user
+  const addLoggedInUser = (e) => {
+    e.preventDefault();
+    if (inputValue.trim() === "") return;
+    setUserName(inputValue);
+    setInputValue("");
+  };
+
   if (!isOnlineStatus)
     return <h1 className="offline-heading">It seems like your are offline</h1>;
 
@@ -47,25 +60,47 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="top-bar">
-        <input
-          type="text"
-          className="search-field"
-          onChange={(e) => {
-            setSeachText(e.target.value);
-          }}
-          value={searchText}
-        />
-        <div className="search-btn" onClick={searchRestaurant}>
-          Search
+        <div className="flex-class">
+          {/* search bar */}
+          <form className="flex-class" onSubmit={(e) => e.preventDefault()}>
+            <input
+              placeholder="Search Here"
+              type="text"
+              className="search-field"
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+                searchRestaurant(e.target.value); // call search function live
+              }}
+            />
+            <div className="search-btn">Search</div>
+          </form>
+
+          <div className="filter-btn top-rated" onClick={filterTopRated}>
+            Top Rated
+          </div>
+
+          <div className="filter-btn show-all" onClick={showAllRes}>
+            Show All
+          </div>
         </div>
-        <div className="filter-btn top-rated" onClick={filterTopRated}>
-          Top Rated
-        </div>
-        <div className="filter-btn show-all" onClick={showAllRes}>
-          Show All
-        </div>
+
+        {/* change logged in user */}
+        <form className="flex-class login-user" onSubmit={addLoggedInUser}>
+          <input
+            placeholder="Add Logged In User"
+            type="text"
+            className="search-field"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <button type="submit" className="search-btn">
+            Add User
+          </button>
+        </form>
       </div>
 
+      {/* restaurant body */}
       <div className="restaurant-container">
         {filteredList.length === 0 ? (
           <div>
