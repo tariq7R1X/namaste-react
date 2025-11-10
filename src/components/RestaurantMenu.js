@@ -32,6 +32,7 @@ const RestaurantMenu = () => {
                 alt="restaurant-img"
                 src={CDN_URL + restaurant.info.cloudinaryImageId}
               />
+              <button className="add-btn">Add +</button>
             </div>
           </li>
         ))}

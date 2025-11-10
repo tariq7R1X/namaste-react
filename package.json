@@ -26,8 +26,10 @@
     "parcel": "^2.16.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.10.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^6.28.0"
   },
   "browsersList": [
