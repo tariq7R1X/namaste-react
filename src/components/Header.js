@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/custom_hooks/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const APP_LOGO = new URL("../../assets/app_logo.png", import.meta.url).href;
 
@@ -9,6 +10,7 @@ const Header = () => {
   const [toggleBtn, setToggleBtn] = useState("Logout");
   const isOnlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
 
   const toggleBtnText = () => {
     setToggleBtn((prev) => (prev === "Login" ? "Logout" : "Login"));
@@ -41,7 +43,12 @@ const Header = () => {
               Grocery
             </Link>
           </li>
-          <li>Cart</li>
+          <li>
+            <Link className="restaurant-link" to={"/cart"}>
+              🛒 - ({cartItems.length} Items)
+            </Link>
+          </li>
+
           <button className="login-btn" onClick={toggleBtnText}>
             {toggleBtn}
           </button>

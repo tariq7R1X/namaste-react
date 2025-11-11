@@ -6,6 +6,7 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Contact from "./components/Contact";
+import Cart from "./components/Cart";
 import { lazy, Suspense, useEffect, useState } from "react";
 import Shimmer from "./components/Shimmer";
 import Footer from "./components/Footer";
@@ -71,6 +72,10 @@ const appRouter = createBrowserRouter([
             <GroceryStore />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/restaurants/:resId",
